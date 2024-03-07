@@ -18,15 +18,18 @@ def main():
     size_window = [1000, 600]
     screen = pygame.display.set_mode(size_window)
 
+    # название игры
     font_name_game = pygame.font.Font(None, 100)
     text_name_game = font_name_game.render("Simple Game!", True, (255, 255, 255))
     screen.blit(text_name_game, (280, 150))
 
+    # кнопка запуска игры
     font_exit = pygame.font.Font(None, 25)
     text_exit = font_exit.render('start', True, (255, 255, 255))
     screen.blit(text_exit, (470, 350))
     button_start = pygame.draw.rect(screen, (255, 255, 255), (290, 350 - 10, 420, 440 - 400), 1)
 
+    # кнопка выхода
     font_exit = pygame.font.Font(None, 25)
     text_exit = font_exit.render('exit', True, (255, 255, 255))
     screen.blit(text_exit, (470, 400))
@@ -41,10 +44,10 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if button_start.collidepoint(event.pos):
                     screen.fill((255, 255, 255))
-                    screen = pygame.display.set_mode([500, 500])
+                    screen = pygame.display.set_mode([500, 500]) # изменить размер окна
                     game_loop()
                 elif button_exit.collidepoint(event.pos):
-                    terminate()
+                    terminate() # закрыть игру если юзер нажал на exit
         pygame.display.flip()
         clock.tick(FPS)
 
