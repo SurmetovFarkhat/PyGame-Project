@@ -118,34 +118,5 @@ def game_loop():
 start_button = pygame.Rect(200, 200, 100, 50)
 exit_button = pygame.Rect(200, 300, 100, 50)
 
-while True:
-    window.fill(WHITE)
-
-    # Отображение кнопок "start" и "exit"
-    pygame.draw.rect(window, BLACK, start_button)
-    pygame.draw.rect(window, BLACK, exit_button)
-
-    font = pygame.font.Font(None, 36)
-    start_text = font.render("Start", True, WHITE)
-    exit_text = font.render("Exit", True, WHITE)
-    window.blit(start_text, (215, 215))
-    window.blit(exit_text, (220, 315))
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_pos = event.pos
-            if start_button.collidepoint(mouse_pos):
-                game_loop()
-            if exit_button.collidepoint(mouse_pos):
-                pygame.quit()
-                sys.exit()
-
-    pygame.display.update()
-
-
 if __name__ == '__main__':
     game_loop()
