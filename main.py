@@ -88,13 +88,13 @@ def game_loop():
                 sys.exit()
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT and x != 0:
                     x -= 1
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT and x != 9:
                     x += 1
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP and y != 0:
                     y -= 1
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_DOWN and y != 9:
                     y += 1
 
             if x == goal_position[0] and y == goal_position[1]:
@@ -145,3 +145,7 @@ while True:
                 sys.exit()
 
     pygame.display.update()
+
+
+if __name__ == '__main__':
+    game_loop()
