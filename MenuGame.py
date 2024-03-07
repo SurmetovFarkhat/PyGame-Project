@@ -2,6 +2,8 @@ import sys
 
 import pygame
 
+from main import game_loop
+
 FPS = 50
 clock = pygame.time.Clock()
 
@@ -17,7 +19,7 @@ def main():
     screen = pygame.display.set_mode(size_window)
 
     font_name_game = pygame.font.Font(None, 100)
-    text_name_game = font_name_game.render("Python Game!", True, (255, 255, 255))
+    text_name_game = font_name_game.render("Simple Game!", True, (255, 255, 255))
     screen.blit(text_name_game, (280, 150))
 
     font_exit = pygame.font.Font(None, 25)
@@ -38,8 +40,9 @@ def main():
                 terminate()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if button_start.collidepoint(event.pos):
-                    screen.fill((0, 0, 0))
-                    # начинаем игру
+                    screen.fill((255, 255, 255))
+                    screen = pygame.display.set_mode([500, 500])
+                    game_loop()
                 elif button_exit.collidepoint(event.pos):
                     terminate()
         pygame.display.flip()
